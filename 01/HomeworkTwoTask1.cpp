@@ -28,8 +28,11 @@ int main(int argc, char** argv) {
 
         std::cin >> numberMonth;
 
-        if (numberMonth < 0) {
-            std::cout << "Номер месяца не может быть отрицательным..." << std::endl;
+        if (numberMonth < 0 || numberMonth > 13) {
+            std::cout << "Неправильный номер!" << std::endl;
+        }
+        else if(!numberMonth) {
+            std::cout << "До свидания" << std::endl;
         }
         else {
             month = static_cast<months>(numberMonth);
@@ -70,12 +73,6 @@ int main(int argc, char** argv) {
                 break;
             case months::december:
                 std::cout << "Декабрь" << std::endl;
-                break;
-            case static_cast<months>(0):
-                std::cout << "До свидания" << std::endl;
-                break;
-            default:
-                std::cout << "Неправильный номер!" << std::endl;
                 break;
             }
         }
